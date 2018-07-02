@@ -193,13 +193,19 @@
 *OpenUI *PageCutType/1. Page Cut Type: PickOne
 *DefaultPageCutType: 0NoCutPage
 *PageCutType 0NoCutPage/No Cut: ""
-*PageCutType 1CutPage/Cut: ""
+*PageCutType 1CutPage/Full Cut: ""
+*PageCutType 2PartialCutPage/Partial Cut: ""
+*PageCutType 3NoFeedCutPage/No Feed Full Cut: ""
+*PageCutType 4NoFeedPartialCutPage/No Feed Partial Cut: ""
 *CloseUI: *PageCutType
 
 *OpenUI *DocCutType/2. Document Cut Type: PickOne
 *DefaultDocCutType: 1CutDoc
 *DocCutType 0NoCutDoc/No Cut: ""
-*DocCutType 1CutDoc/Cut: ""
+*DocCutType 1CutDoc/Full Cut: ""
+*DocCutType 2PartialCutDoc/Partial Cut: ""
+*DocCutType 3NoFeedCutDoc/No Feed Full Cut: ""
+*DocCutType 4NoFeedPartialCutDoc/No Feed Partial Cut: ""
 *CloseUI: *DocCutType
 *CloseGroup: CutGroup
 

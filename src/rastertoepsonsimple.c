@@ -145,6 +145,15 @@ static const struct command printerInitializeCommand =
 static const struct command pageCutCommand =
 {4, (char[4]){29,'V','A',20}};
 
+static const struct command partialCutCommand =
+{4, (char[4]){29,'V','B',20}};
+
+static const struct command noFeedPageCutCommand =
+{4, (char[4]){29,'V','0',20}};
+
+static const struct command noFeedPartialCutCommand =
+{4, (char[4]){29,'V','1',20}};
+
 static const struct command drawerKickCommand =
 {5, (char[5]){27,112,48,55,121}};
 
@@ -341,17 +350,25 @@ void pageSetup(struct settings_ settings, cups_page_header_t header)
 
 void endPage(struct settings_ settings)
 {
-	if (settings.pageCutType)
-	{
-		outputCommand(pageCutCommand);
+	switch (settings.pageCutType)
+    {
+        case 1: outputCommand(pageCutCommand); break;
+        case 2: outputCommand(partialCutCommand); break;
+        case 3: outputCommand(noFeedPageCutCommand); break;
+        case 4: outputCommand(noFeedPartialCutCommand); break;
     }
 }
 
 void endJob(struct settings_ settings)
 {
-	if (settings.docCutType)
-	{
-		outputCommand(pageCutCommand);
+    if (settings.pageCutType != 1 && settings.pageCutType != 3) { /* Don't cut again if already cut after last page */
+        switch (settings.docCutType)
+        {
+            case 1: outputCommand(pageCutCommand); break;
+            case 2: outputCommand(partialCutCommand); break;
+            case 3: outputCommand(noFeedPageCutCommand); break;
+            case 4: outputCommand(noFeedPartialCutCommand); break;
+        }
     }
     if (settings.drawerKick)
     {
