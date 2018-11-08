@@ -179,14 +179,6 @@
 *PageType 0Variable/Variable Length: ""
 *PageType 1Fixed/Fixed Length: ""
 *CloseUI: *PageType
-
-*OpenUI *PixelDoublingType/Pixel Doubling: PickOne
-*DefaultPixelDoublingType: 0NoDoubling
-*PixelDoublingType 0NoDoubling/None: ""
-*PixelDoublingType 1HorizontalDoubling/Double Width: ""
-*PixelDoublingType 2VerticalDoubling/Double High: ""
-*PixelDoublingType 3BothDoubling/Double Wide and High: ""
-*CloseUI: *PixelDoublingType
 *CloseGroup: OutputGroup
 
 *OpenGroup: CutGroup/Cut Options
@@ -219,6 +211,13 @@
 
 
 *OpenGroup: DoublingGroup/Pixel Doubling
+*OpenUI *PixelDoublingType/Pixel Doubling: PickOne
+*DefaultPixelDoublingType: 0NoDoubling
+*PixelDoublingType 0NoDoubling/None: ""
+*PixelDoublingType 1HorizontalDoubling/Double Width: ""
+*PixelDoublingType 2VerticalDoubling/Double High: ""
+*PixelDoublingType 3BothDoubling/Double Wide and High: ""
+*CloseUI: *PixelDoublingType
 *CloseGroup: DoublingGroup
 
 
