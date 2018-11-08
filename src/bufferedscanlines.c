@@ -120,8 +120,8 @@ void bufferscan_flush(t_bufferscan *bs)
 	writeLong(totalBytes + 10, bs->fp);
     fputc('0', bs->fp); fputc('p', bs->fp);
 	fputc('0', bs->fp);
-	fputc(bs->outputFlags & kDoubleWide ? 2 : 1, bs->fp);
-	fputc(bs->outputFlags & kDoubleHigh ? 2 : 1, bs->fp);
+	fputc(bs->outputFlags & kDoubleWide ? 4 : 1, bs->fp);
+	fputc(bs->outputFlags & kDoubleHigh ? 4 : 1, bs->fp);
 	fputc('1', bs->fp);
 	writeShort(bs->bytesPerRow * 8, bs->fp);
 	writeShort(bs->currentRow, bs->fp);
